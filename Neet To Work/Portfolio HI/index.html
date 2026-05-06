@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Personnel File // Hairul Iqwan</title>
+
+        <!-- Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ["Inter", "sans-serif"],
+                            display: ["Space Grotesk", "sans-serif"],
+                            mono: ["JetBrains Mono", "monospace"],
+                            cyber: ["Orbitron", "sans-serif"],
+                        },
+                        colors: {
+                            "cyber-dark": "#030305",
+                            "cyber-blue": "#00f0ff",
+                            "cyber-magenta": "#ff003c",
+                            "cyber-glass": "rgba(10, 15, 20, 0.65)",
+                        },
+                        boxShadow: {
+                            "neon-blue":
+                                "0 0 20px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1)",
+                            "neon-magenta":
+                                "0 0 20px rgba(255, 0, 60, 0.4), inset 0 0 10px rgba(255, 0, 60, 0.1)",
+                            glass: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+                        },
+                        backgroundImage: {
+                            "grid-pattern":
+                                "linear-gradient(to right, #00f0ff0a 1px, transparent 1px), linear-gradient(to bottom, #00f0ff0a 1px, transparent 1px)",
+                            "tech-gradient":
+                                "radial-gradient(ellipse at top, #111827, #030305)",
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <style>
+            body {
+                background-color: #030305;
+                color: #e0e0e0;
+                overflow-x: hidden;
+                background-image: radial-gradient(
+                    ellipse 80% 80% at 50% -20%,
+                    rgba(0, 240, 255, 0.1),
+                    rgba(3, 3, 5, 1)
+                );
+            }
+
+            /* Animations */
+            @keyframes slideInLeft {
+                from {
+                    transform: translateX(-40px);
+                    opacity: 0;
+                    filter: blur(5px);
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                    filter: blur(0);
+                }
+            }
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(40px);
+                    opacity: 0;
+                    filter: blur(5px);
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                    filter: blur(0);
+                }
+            }
+            @keyframes neonBreathe {
+                0%,
+                100% {
+                    text-shadow:
+                        0 0 10px rgba(0, 240, 255, 0.3),
+                        0 0 20px rgba(0, 240, 255, 0.2);
+                    filter: brightness(1);
+                }
+                50% {
+                    text-shadow:
+                        0 0 15px rgba(0, 240, 255, 0.8),
+                        0 0 30px rgba(0, 240, 255, 0.5),
+                        0 0 45px rgba(0, 240, 255, 0.3);
+                    filter: brightness(1.15);
+                }
+            }
+
+            @keyframes pulseSlow {
+                0%,
+                100% {
+                    opacity: 0.8;
+                    transform: scale(1);
+                }
+                50% {
+                    opacity: 0.4;
+                    transform: scale(0.95);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px) scale(0.98);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+
+            .animate-slide-left {
+                animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+                    forwards;
+            }
+            .animate-slide-right {
+                animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+                    forwards;
+            }
+            .animate-neon-breathe {
+                animation: neonBreathe 4s infinite ease-in-out;
+            }
+            .animate-status-pulse {
+                animation: pulseSlow 3s infinite ease-in-out;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            }
+            .delay-200 {
+                animation-delay: 0.2s;
+            }
+
+            /* Custom Scrollbars */
+            ::-webkit-scrollbar {
+                width: 4px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #030305;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: rgba(0, 240, 255, 0.3);
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgba(0, 240, 255, 0.8);
+            }
+
+            .custom-modal-scroll::-webkit-scrollbar {
+                width: 4px;
+            }
+            .custom-modal-scroll::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.02);
+            }
+            .custom-modal-scroll::-webkit-scrollbar-thumb {
+                background: #00f0ff;
+                border-radius: 10px;
+            }
+
+            /* Skill Bar Initial State */
+            .skill-progress {
+                width: 0%;
+                transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+            }
+
+            /* Scanline / Grid Effect Overlay */
+            .scanline-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    rgba(18, 16, 16, 0) 50%,
+                    rgba(0, 0, 0, 0.15) 50%
+                );
+                background-size: 100% 4px;
+                z-index: 999;
+                pointer-events: none;
+                opacity: 0.3;
+            }
+
+            /* Modernized Cyber Buttons */
+            .cyber-btn {
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                font-size: 11px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+                border-radius: 2px;
+            }
+
+            .cyber-btn-primary {
+                background: linear-gradient(
+                    135deg,
+                    rgba(0, 240, 255, 0.1) 0%,
+                    rgba(0, 240, 255, 0) 100%
+                );
+                border: 1px solid #00f0ff;
+                color: #00f0ff;
+                box-shadow:
+                    0 0 15px rgba(0, 240, 255, 0.15),
+                    inset 0 0 20px rgba(0, 240, 255, 0.05);
+            }
+            .cyber-btn-primary:hover {
+                background-color: #00f0ff;
+                color: #030305;
+                box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+                transform: translateY(-2px);
+            }
+
+            .cyber-btn-outline {
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                color: #a1a1aa;
+                background-color: rgba(255, 255, 255, 0.02);
+            }
+            .cyber-btn-outline:hover {
+                border-color: #00f0ff;
+                color: #00f0ff;
+                background-color: rgba(0, 240, 255, 0.05);
+                box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            .cyber-btn-magenta {
+                background: rgba(255, 0, 60, 0.05);
+                border: 1px solid #ff003c;
+                color: #ff003c;
+                box-shadow: 0 0 20px rgba(255, 0, 60, 0.2);
+            }
+            .cyber-btn-magenta:hover {
+                background-color: #ff003c;
+                color: #fff;
+                box-shadow: 0 0 40px rgba(255, 0, 60, 0.6);
+                transform: scale(1.02);
+            }
+
+            .cyber-btn-sm {
+                padding: 0.6rem 1.25rem;
+                font-size: 10px;
+            }
+            .cyber-btn-lg {
+                padding: 1rem 2.5rem;
+                font-size: 12px;
+            }
+
+            /* Glass Panel */
+            .glass-panel {
+                background: rgba(10, 15, 20, 0.4);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(0, 240, 255, 0.1);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body
+        class="font-sans selection:bg-cyan-500/30 text-white overflow-x-hidden bg-[length:30px_30px] bg-grid-pattern"
+    >
+        <div class="scanline-overlay"></div>
+
+        <div class="max-w-7xl mx-auto px-6 py-8 relative">
+
+        <!-- SECTION 1: TOP (HERO & HEADER) -->
+        <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] xl:w-max bg-[#050505]/90 backdrop-blur-md border border-cyan-900/50 rounded-2xl px-6 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all flex flex-col md:flex-row justify-between items-center gap-6 md:gap-12">
+
+                    <!-- Identiti Kiri -->
+                    <div class="flex items-center gap-4">
+                        <!-- Square "HI" Box -->
+                        <div class="w-12 h-12 border border-cyber-blue flex items-center justify-center font-mono font-bold text-cyber-blue text-2xl bg-cyan-400/5 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                            HI
+                        </div>
+                        <div class="space-y-0.5 text-left">
+                            <p class="font-mono text-[10px] tracking-[0.3em] text-cyan-600 uppercase">Personnel File</p>
+                            <h1 class="font-display font-black text-2xl tracking-tighter text-white uppercase italic leading-none">Hairul <span class="text-cyber-blue">Iqwan</span></h1>
+                        </div>
+                    </div>
+
+                    <!-- Information Grid (Kanan) -->
+                    <div class="flex flex-wrap justify-center md:justify-end gap-6 md:gap-8 font-mono text-[9px] tracking-widest uppercase">
+                        <div class="space-y-1 text-center md:text-left">
+                            <p class="text-cyber-blue">LOCATION</p>
+                            <p class="text-white">Cyberjaya-Malaysia</p>
+                        </div>
+                        <div class="space-y-1 text-center md:text-left">
+                            <p class="text-cyber-blue">STATUS</p>
+                            <p class="text-green-500 font-bold animate-pulse">AVAILABLE_FOR_HIRE</p>
+                        </div>
+                        <div class="space-y-1 text-center md:text-left">
+                            <p class="text-cyber-blue">CONTACT</p>
+                            <p class="text-white">+60172135172</p>
+                        </div>
+                        <div class="space-y-1 text-center md:text-left">
+                            <p class="text-cyber-blue">EMAIL</p>
+                            <p class="text-white">HAIRULIQWAN352@GMAIL.COM</p>
+                        </div>
+                    </div>
+
+                </nav>
+
+        <!-- Hero Section (Centered Brand) -->
+        <section class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden bg-bg">
+            <!-- Subtle noise background or vignette -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(0,255,255,0.03)_0%,_transparent_70%)]"></div>
+
+            <div class="relative z-10 text-center flex flex-col items-center">
+                <div class="scroll-reveal active">
+                    <h1 class="font-cyber font-black italic tracking-tighter leading-none flex flex-col items-center select-none">
+                        <span class="text-6xl md:text-9xl text-white animate-slide-left pb-2" style="transform-origin: left center;">HAIRUL</span>
+
+                        <!-- Teks IQWAN yang glowing dan berdenyut -->
+                        <span class="text-6xl md:text-9xl text-cyan-400 animate-slide-right animate-neon-breathe drop-shadow-[0_0_25px_rgba(34,211,238,0.9)] mt-[-10px] md:mt-[-25px] glow-cyan" style="transform-origin: right center;">
+                            IQWAN
+                        </span>
+                    </h1>
+
+                    <div class="w-full max-w-3xl mx-auto my-12">
+
+                        <!-- Garisan Atas BerCahaya -->
+                        <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_rgba(34,211,238,0.8)] mb-6 opacity-80"></div>
+
+                        <!-- Teks Subtitle (Penuh & Tiada Pemotong) -->
+                        <p id="matrix-text" data-value="WORKFLOW AUTOMATION SPECIALIST | SOLUTION ARCHITECT | FORMER CS PROFESSIONAL" class="font-mono text-cyan-400 text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] leading-loose opacity-90 text-center px-4">
+                            WORKFLOW AUTOMATION SPECIALIST | SOLUTION ARCHITECT | FORMER CS PROFESSIONAL
+                        </p>
+
+                        <!-- Garisan Bawah BerCahaya -->
+                        <div class="h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_rgba(34,211,238,0.8)] mt-6 opacity-80"></div>
+
+                    </div>
+
+                <!-- Buttons Container -->
+                <div
+                    class="flex flex-col md:flex-row gap-6 justify-center mt-4"
+                >
+                    <a
+                        href="#why-hire"
+                        class="cyber-btn cyber-btn-primary cyber-btn-lg group"
+                    >
+                        <span
+                            class="mr-2 opacity-50 group-hover:opacity-100 transition-opacity"
+                            >&gt;</span
+                        >
+                        WHY HIRE ME?
+                    </a>
+                    <a
+                        href="#apps"
+                        class="cyber-btn cyber-btn-outline cyber-btn-lg group"
+                    >
+                        <span
+                            class="mr-2 opacity-50 group-hover:opacity-100 transition-opacity"
+                            >&gt;</span
+                        >
+                        MY APPS DEMO
+                    </a>
+                </div>
+            </section>
+
+            <!-- SECTION 2: MIDDLE (THE WORKSPACE GRID) -->
+            <section
+                id="why-hire"
+                class="relative grid grid-cols-1 lg:grid-cols-3 gap-8 mb-40 scroll-mt-24 overflow-hidden z-10"
+            >
+                <!-- LEFT COLUMN -->
+                <div class="lg:col-span-2 flex flex-col gap-8">
+                    <!-- Deployment Rationale -->
+                    <div
+                        class="glass-panel border-l-2 border-cyber-blue p-8 md:p-12 relative overflow-hidden group hover:border-l-4 transition-all duration-300"
+                    >
+                        <div
+                            class="absolute top-0 right-0 w-32 h-32 bg-cyber-blue opacity-[0.03] blur-3xl rounded-full"
+                        ></div>
+                        <div
+                            class="absolute top-4 right-6 font-mono text-[9px] text-cyan-600/50"
+                        >
+                            I.E_MISSION_PROFILE_01
+                        </div>
+                        <h3
+                            class="font-mono text-xs text-cyber-blue mb-8 tracking-[0.3em] uppercase flex items-center gap-3"
+                        >
+                            <span
+                                class="w-8 h-[1px] bg-cyber-blue inline-block"
+                            ></span>
+                            DEPLOYMENT_RATIONALE
+                        </h3>
+
+                        <p
+                            class="font-display text-2xl md:text-3xl font-light text-gray-200 leading-snug mb-10 tracking-tight"
+                        >
+                            "For many years, my professional world revolved
+                            around one core element:
+                            <span
+                                class="text-white font-medium drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]"
+                                >the human experience.</span
+                            >
+                            Working in high-pressure CS environments taught me
+                            that every piece of code must eventually
+                            <span class="text-cyber-blue font-medium italic"
+                                >serve a person.</span
+                            >"
+                        </p>
+
+                        <div
+                            class="space-y-6 text-gray-400 font-sans text-sm font-light leading-relaxed max-w-3xl"
+                        >
+                            <p>
+                                I spent a decade listening to users'
+                                frustrations, and I realized that most problems
+                                weren't just about communication—they were about
+                                inefficient, manual processes that slowed
+                                everyone down. This realization sparked a fire
+                                in me. I didn't just want to talk about the
+                                problems anymore; I wanted to build the
+                                solutions.
+                            </p>
+                            <p>
+                                I transitioned into development as a self-taught
+                                coder, driven by a simple philosophy:
+                                <span
+                                    class="text-cyan-300 font-medium tracking-wide"
+                                    >Identify a bottleneck, and automate the
+                                    solution.</span
+                                >
+                                My journey from solving customer issues to
+                                architecting automation systems like
+                                <strong
+                                    class="text-white font-mono text-xs tracking-wider"
+                                    >IqwanEngine</strong
+                                >
+                                has given me a unique perspective. I build tools
+                                that make work—and life—easier.
+                            </p>
+                            <p>
+                                I am now looking for my first official break in
+                                the tech industry. I am entering this field with
+                                a high degree of humility and a 'Junior'
+                                mindset, but with a 'Senior' level of
+                                dedication. I am looking for the right team that
+                                values grit, adaptability, and a relentless
+                                drive to solve real-world problems.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Split Grid -->
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow"
+                    >
+                        <!-- Value Proposition -->
+                        <div
+                            class="glass-panel p-8 space-y-6 hover:shadow-neon-blue transition-shadow duration-500"
+                        >
+                            <h4
+                                class="font-mono text-[10px] text-cyan-500 tracking-widest uppercase flex items-center gap-2 mb-6"
+                            >
+                                <span
+                                    class="w-1.5 h-1.5 bg-cyan-500 inline-block"
+                                ></span>
+                                VALUE_PROPOSITION
+                            </h4>
+                            <div class="space-y-6">
+                                <div class="group/item">
+                                    <h5
+                                        class="text-white text-[11px] font-bold tracking-widest mb-1.5 uppercase group-hover/item:text-cyber-blue transition-colors"
+                                    >
+                                        ADAPTABILITY
+                                    </h5>
+                                    <p
+                                        class="text-gray-500 text-xs font-light leading-relaxed"
+                                    >
+                                        Pivoted my entire career through
+                                        self-study; capable of learning any new
+                                        stack rapidly.
+                                    </p>
+                                </div>
+                                <div class="group/item">
+                                    <h5
+                                        class="text-white text-[11px] font-bold tracking-widest mb-1.5 uppercase group-hover/item:text-cyber-blue transition-colors"
+                                    >
+                                        LOW EGO, HIGH DEDICATION
+                                    </h5>
+                                    <p
+                                        class="text-gray-500 text-xs font-light leading-relaxed"
+                                    >
+                                        Ready to start from the ground up,
+                                        focused entirely on delivering value and
+                                        learning from mentors.
+                                    </p>
+                                </div>
+                                <div class="group/item">
+                                    <h5
+                                        class="text-white text-[11px] font-bold tracking-widest mb-1.5 uppercase group-hover/item:text-cyber-blue transition-colors"
+                                    >
+                                        PROBLEM-FIRST MINDSET
+                                    </h5>
+                                    <p
+                                        class="text-gray-500 text-xs font-light leading-relaxed"
+                                    >
+                                        I code to remove friction and save
+                                        measurable time for your business
+                                        operations.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Experience Bridge -->
+                        <div
+                            class="glass-panel p-8 flex flex-col justify-center relative overflow-hidden group"
+                        >
+                            <div
+                                class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyan-900/20 blur-3xl rounded-full group-hover:bg-cyan-600/20 transition-colors duration-700"
+                            ></div>
+                            <h4
+                                class="font-mono text-[10px] text-cyan-500 tracking-widest uppercase flex items-center gap-2 mb-6"
+                            >
+                                <span
+                                    class="w-1.5 h-1.5 bg-cyan-500 inline-block"
+                                ></span>
+                                EXPERIENCE_BRIDGE
+                            </h4>
+                            <h5
+                                class="text-white text-sm font-display font-bold mb-4 uppercase tracking-wider"
+                            >
+                                HUMAN-CENTRIC INTERFACE
+                            </h5>
+                            <p
+                                class="text-gray-400 text-xs font-light leading-relaxed"
+                            >
+                                I am the bridge between Human Needs and
+                                Technical Execution. My history in CS means I
+                                have the patience to troubleshoot complex issues
+                                and the communication skills to explain
+                                technical solutions to non-technical
+                                stakeholders. <br /><br /><span
+                                    class="text-cyber-blue font-medium italic"
+                                    >I am a developer who actually knows how to
+                                    listen.</span
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                                <div class="lg:col-span-1 flex flex-col gap-8">
+                                    <!-- Core Skills -->
+                                    <div class="glass-panel p-8 space-y-10 flex-grow relative overflow-hidden bg-black/20 group">
+
+                                        <!-- Background Animated GIF Effect -->
+                                        <div class="absolute inset-0 -z-10 pointer-events-none">
+                                            <img src="assets/BG.GIF" alt="Dynamic Background" class="w-full h-full object-cover opacity-40 blur-[3px] transition-all duration-700 group-hover:blur-[2px] group-hover:opacity-50" />
+                                            <!-- Dark Gradient Overlay for Text Readability -->
+                                            <div class="absolute inset-0 bg-gradient-to-b from-[#030305]/80 via-[#030305]/60 to-[#030305]/90"></div>
+                                        </div>
+
+                                        <h3 class="font-mono text-xs text-cyber-blue tracking-[0.4em] uppercase border-b border-white/10 pb-6 relative z-10 drop-shadow-md">
+                                            &gt;_ CORE_SKILLS
+                                        </h3>
+
+                                        <div class="space-y-8 relative z-10" id="skills-container">
+                                            <!-- Skill Item Template -->
+                                            <div class="skill-item space-y-3 group/skill">
+                                                <div class="flex justify-between font-mono text-[10px] uppercase">
+                                                    <span class="text-gray-300 group-hover/skill:text-white transition-colors">PYTHON DEVELOPMENT</span>
+                                                    <span class="text-cyber-blue drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">60%</span>
+                                                </div>
+                                                <p class="text-gray-400 text-[9px] uppercase tracking-wider">
+                                                    Building efficient background tasks.
+                                                </p>
+                                                <div class="h-[2px] bg-gray-800/60 w-full relative overflow-hidden">
+                                                    <div class="skill-progress h-full bg-cyber-blue shadow-neon-blue absolute left-0 top-0" data-percent="60"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Workflow -->
+                                            <div class="skill-item space-y-3 group/skill">
+                                                <div class="flex justify-between font-mono text-[10px] uppercase">
+                                                    <span class="text-gray-300 group-hover/skill:text-white transition-colors">WORKFLOW AUTOMATION</span>
+                                                    <span class="text-cyber-blue drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">50%</span>
+                                                </div>
+                                                <p class="text-gray-400 text-[9px] uppercase tracking-wider">
+                                                    Eliminating manual repetitive tasks.
+                                                </p>
+                                                <div class="h-[2px] bg-gray-800/60 w-full relative overflow-hidden">
+                                                    <div class="skill-progress h-full bg-cyber-blue shadow-neon-blue absolute left-0 top-0" data-percent="50"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- AI -->
+                                            <div class="skill-item space-y-3 group/skill">
+                                                <div class="flex justify-between font-mono text-[10px] uppercase">
+                                                    <span class="text-gray-300 group-hover/skill:text-white transition-colors">AI INTEGRATION</span>
+                                                    <span class="text-cyber-blue drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">50%</span>
+                                                </div>
+                                                <p class="text-gray-400 text-[9px] uppercase tracking-wider">
+                                                    Implementing LLMs and intelligence.
+                                                </p>
+                                                <div class="h-[2px] bg-gray-800/60 w-full relative overflow-hidden">
+                                                    <div class="skill-progress h-full bg-cyber-blue shadow-neon-blue absolute left-0 top-0" data-percent="50"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Architecture -->
+                                            <div class="skill-item space-y-3 group/skill">
+                                                <div class="flex justify-between font-mono text-[10px] uppercase">
+                                                    <span class="text-gray-300 group-hover/skill:text-white transition-colors">SYSTEM ARCHITECTURE</span>
+                                                    <span class="text-cyber-blue drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">75%</span>
+                                                </div>
+                                                <p class="text-gray-400 text-[9px] uppercase tracking-wider">
+                                                    Designing module interactions.
+                                                </p>
+                                                <div class="h-[2px] bg-gray-800/60 w-full relative overflow-hidden">
+                                                    <div class="skill-progress h-full bg-cyber-blue shadow-neon-blue absolute left-0 top-0" data-percent="75"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- MS Tools -->
+                                            <div class="skill-item space-y-3 group/skill">
+                                                <div class="flex justify-between font-mono text-[10px] uppercase leading-relaxed">
+                                                    <span class="text-gray-300 group-hover/skill:text-white transition-colors pr-4">MICROSOFT TOOLS & APPS SCRIPT</span>
+                                                    <span class="text-cyber-blue drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">90%</span>
+                                                </div>
+                                                <div class="h-[2px] bg-gray-800/60 w-full relative overflow-hidden mt-2">
+                                                    <div class="skill-progress h-full bg-cyber-blue shadow-neon-blue absolute left-0 top-0" data-percent="90"></div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Customer Ops -->
+                                            <div class="skill-item space-y-3 group/skill">
+                                                <div class="flex justify-between font-mono text-[10px] uppercase">
+                                                    <span class="text-gray-300 group-hover/skill:text-white transition-colors">CUSTOMER OPERATIONS</span>
+                                                    <span class="text-cyber-blue drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">85%</span>
+                                                </div>
+                                                <p class="text-gray-400 text-[9px] uppercase tracking-wider">
+                                                    Deep understanding of user needs.
+                                                </p>
+                                                <div class="h-[2px] bg-gray-800/60 w-full relative overflow-hidden">
+                                                    <div class="skill-progress h-full bg-cyber-blue shadow-neon-blue absolute left-0 top-0" data-percent="85"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                    <!-- CTA Module -->
+                    <button
+                        onclick="openModal()"
+                        class="w-full cyber-btn cyber-btn-magenta !p-10 flex flex-col items-center justify-center text-center focus:ring-2 focus:ring-white overflow-hidden group"
+                    >
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50"
+                        ></div>
+                        <p
+                            class="font-mono text-white/80 text-[10px] font-light tracking-[0.4em] mb-3 uppercase relative z-10"
+                        >
+                            PRIMARY OBJECTIVE
+                        </p>
+                        <h3
+                            class="font-display font-black text-white text-3xl tracking-widest uppercase leading-none relative z-10 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all"
+                        >
+                            BUILDING THE FUTURE
+                        </h3>
+                    </button>
+                </div>
+            </section>
+
+            <!-- RESUME MODAL -->
+                        <div id="resume-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4 md:p-6 lg:p-12">
+                            <!-- Modal Backdrop -->
+                            <div onclick="closeModal()" class="absolute inset-0 bg-black/85 backdrop-blur-sm"></div>
+
+                            <!-- Modal Content Outer -->
+                            <div class="relative w-full max-w-5xl h-full max-h-[85vh] bg-cyber-dark border border-cyber-blue shadow-[0_0_30px_rgba(34,211,238,0.2)] flex flex-col overflow-hidden animate-fade-in group">
+
+                                <!-- Video Background -->
+                                <div class="absolute inset-0 pointer-events-none overflow-hidden -z-10 bg-black">
+                                    <!-- Blur diturunkan kepada 1px dan opacity dinaikkan supaya wajah lebih jelas -->
+                                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60 blur-[1px] scale-[1.08] translate-y-[4%]">
+                                        <source src="assets/Resume vid.mp4" type="video/mp4">
+                                    </video>
+                                    <!-- Readability Overlay: Atas lutsinar (nampak muka), bawah gelap (untuk teks) -->
+                                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/60 to-[#050505]/95"></div>
+                                </div>
+
+                                <!-- Modal Header (Glass Top Bar) -->
+                                <div class="flex justify-between items-center px-8 py-5 border-b border-white/5 backdrop-blur-sm bg-black/20 relative z-20">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-10 h-10 border border-cyber-blue flex items-center justify-center font-mono font-bold text-cyber-blue text-sm bg-cyan-400/10">R0</div>
+                                        <div class="space-y-0.5">
+                                            <span class="font-mono text-[9px] text-cyber-blue uppercase tracking-[0.4em] drop-shadow-md">HAIRULIQWAN-RESUME</span>
+                                            <h4 class="font-display font-black italic text-white text-lg tracking-tighter uppercase leading-none drop-shadow-md">IQWANENGINE_FILE</h4>
+                                        </div>
+                                    </div>
+                                    <button onclick="closeModal()" class="w-10 h-10 flex items-center justify-center text-cyber-blue hover:text-white transition-colors border border-white/10 hover:border-cyber-blue bg-white/5 backdrop-blur-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                    </button>
+                                </div>
+
+                                <!-- Body (Glassmorphism Grid) -->
+                                <div class="flex-grow overflow-y-auto custom-modal-scroll p-8 relative z-10 flex flex-col">
+
+                                    <!-- Ruang kosong (Spacer) untuk tolak content ke bawah supaya video atas tak tertutup -->
+                                    <div class="min-h-[40vh] md:min-h-[45vh] w-full flex-shrink-0"></div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-auto">
+
+                                        <!-- Left Column: Identity Info -->
+                                        <div class="space-y-8 animate-slide-left">
+                                            <div class="bg-black/40 backdrop-blur-md border border-white/10 p-8 space-y-6 relative group/box">
+                                                <div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-cyber-blue opacity-40 group-hover/box:opacity-100 transition-opacity"></div>
+                                                <h5 class="font-mono text-xs text-cyber-blue tracking-[0.4em] uppercase drop-shadow-md">// IDENTITY_VERIFIED</h5>
+
+                                                <div class="space-y-4">
+                                                    <div class="flex justify-between border-b border-white/10 pb-2">
+                                                        <span class="font-mono text-[10px] text-gray-400 uppercase">SUBJECT</span>
+                                                        <span class="font-mono text-[10px] text-white uppercase font-bold drop-shadow-md">MUHAMMAD HAIRUL IQWAN</span>
+                                                    </div>
+                                                    <div class="flex justify-between border-b border-white/10 pb-2">
+                                                        <span class="font-mono text-[10px] text-gray-400 uppercase">DESIGNATION</span>
+                                                        <span class="font-mono text-[10px] text-cyber-blue uppercase font-bold drop-shadow-md">AUTOMATION ARCHITECT</span>
+                                                    </div>
+                                                    <div class="flex justify-between border-b border-white/10 pb-2">
+                                                        <span class="font-mono text-[10px] text-gray-400 uppercase">CLEARANCE</span>
+                                                        <span class="font-mono text-[10px] text-white uppercase font-bold drop-shadow-md">LEVEL_4_RESTRICTED</span>
+                                                    </div>
+                                                    <div class="flex justify-between border-b border-white/10 pb-2">
+                                                        <span class="font-mono text-[10px] text-gray-400 uppercase">ORIGIN</span>
+                                                        <span class="font-mono text-[10px] text-white uppercase font-bold drop-shadow-md">Cyberjaya-Malaysia</span>
+                                                    </div>
+                                                </div>
+
+                                                <p class="text-gray-300 text-xs leading-loose font-light italic">
+                                                    "A self-taught architect bridging the gap between human intuition and machine efficiency.
+                                                    I specialize in identifying operational bottlenecks and deploying scalable automation systems
+                                                    that reclaim human time and optimize system output."
+                                                </p>
+                                            </div>
+
+                                            <!-- Highlights -->
+                                            <div class="grid grid-cols-2 gap-4">
+                                                <div class="bg-black/40 backdrop-blur-md border border-white/10 p-4 text-center">
+                                                    <p class="font-mono text-[9px] text-cyber-blue uppercase mb-1 drop-shadow-md">PROJ_DEPLOYED</p>
+                                                    <p class="font-display font-black text-2xl text-white drop-shadow-lg">12+</p>
+                                                </div>
+                                                <div class="bg-black/40 backdrop-blur-md border border-white/10 p-4 text-center">
+                                                    <p class="font-mono text-[9px] text-cyber-blue uppercase mb-1 drop-shadow-md">XP_OPERATIONS</p>
+                                                    <p class="font-display font-black text-2xl text-white drop-shadow-lg">7Y</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Right Column: Timeline -->
+                                        <div class="space-y-8 animate-slide-right delay-200">
+                                            <div class="bg-black/40 backdrop-blur-md border border-white/10 p-8">
+                                                <h5 class="font-mono text-xs text-cyber-blue tracking-[0.4em] uppercase mb-6 drop-shadow-md">// OPERATIONAL_HISTORY</h5>
+
+                                                <div class="relative pl-8 space-y-10">
+                                                    <!-- Timeline Line -->
+                                                    <div class="absolute left-0 top-2 bottom-2 w-px bg-white/20"></div>
+
+                                                    <!-- Timeline Nodes -->
+                                                    <div class="relative">
+                                                        <div class="absolute -left-8 top-1.5 w-2 h-2 rounded-full border border-cyber-blue bg-cyber-blue shadow-[0_0_10px_rgba(34,211,238,0.8)]"></div>
+                                                        <p class="font-mono text-[9px] text-cyber-blue mb-1 uppercase drop-shadow-md">2026 - PRESENT</p>
+                                                        <h6 class="text-white text-[11px] font-bold uppercase tracking-wider drop-shadow-md">Solution Architect (Freelance)</h6>
+                                                        <p class="text-gray-300 text-[10px] mt-1 font-light leading-relaxed">Designing cloud-native automation pipelines for SME optimization.</p>
+                                                    </div>
+
+                                                    <div class="relative">
+                                                        <div class="absolute -left-8 top-1.5 w-2 h-2 rounded-full border border-white/40 bg-cyber-dark"></div>
+                                                        <p class="font-mono text-[9px] text-gray-400 mb-1 uppercase">2024 - 2026</p>
+                                                        <h6 class="text-white text-[11px] font-bold uppercase tracking-wider drop-shadow-md">Lead Automation Designer (IqwanEngine)</h6>
+                                                        <p class="text-gray-300 text-[10px] mt-1 font-light leading-relaxed">Architected the core algorithmic engine for XAUUSD market analysis.</p>
+                                                    </div>
+
+                                                    <div class="relative">
+                                                        <div class="absolute -left-8 top-1.5 w-2 h-2 rounded-full border border-white/40 bg-cyber-dark"></div>
+                                                        <p class="font-mono text-[9px] text-gray-400 mb-1 uppercase">2014 - 2024</p>
+                                                        <h6 class="text-white text-[11px] font-bold uppercase tracking-wider drop-shadow-md">Customer Operations Specialist</h6>
+                                                        <p class="text-gray-300 text-[10px] mt-1 font-light leading-relaxed">Managed high-stakes user interactions and operational troubleshooting.</p>
+                                                    </div>
+
+                                                    <div class="relative">
+                                                        <div class="absolute -left-8 top-1.5 w-2 h-2 rounded-full border border-white/40 bg-cyber-dark"></div>
+                                                        <p class="font-mono text-[9px] text-gray-400 mb-1 uppercase">EDUCATION</p>
+                                                        <h6 class="text-white text-[11px] font-bold uppercase tracking-wider drop-shadow-md">Self-Architected Curriculum</h6>
+                                                        <p class="text-gray-300 text-[10px] mt-1 font-light leading-relaxed">Advanced Python, System Architecture, & DevOps integration.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Modal Footer -->
+                                <div class="px-8 py-6 border-t border-white/10 bg-black/80 backdrop-blur-xl flex flex-col md:flex-row justify-between items-center gap-6 relative z-20">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-2 h-2 bg-cyber-blue rounded-full animate-status-pulse shadow-neon-blue"></div>
+                                        <h2 class="font-display font-bold uppercase text-lg text-white tracking-widest drop-shadow-md">
+                                            MUHAMMAD HAIRUL IQWAN
+                                        </h2>
+                                    </div>
+                                    <a href="assets/MUHAMMAD-HAIRUL-IQWAN-APRIL 2026.pdf" download="Muhammad_Hairul_Iqwan_Resume.pdf" class="cyber-btn cyber-btn-primary cyber-btn-sm">
+                                        [ DOWNLOAD RESUME PDF ]
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+            <!-- SECTION 3: BOTTOM (APPS DEMO & BACKGROUND) -->
+            <section id="apps" class="relative py-40 scroll-mt-24">
+
+                <!-- Video Background Trick -->
+                <div class="absolute inset-x-0 bottom-0 top-0 overflow-hidden pointer-events-none -z-10">
+                    <video autoplay loop muted playsinline class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 min-w-full min-h-full object-cover opacity-20 blur-[8px] scale-[1.05]">
+                        <source src="assets/AI Movement 1.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark via-transparent to-cyber-dark"></div>
+                </div>
+
+                <div class="relative z-10">
+                    <div class="flex items-end justify-between mb-16 px-4">
+                        <div class="space-y-4">
+                            <h3 class="font-display font-black text-6xl italic text-white tracking-tighter uppercase">PROJECT_REPO <span class="text-cyber-blue text-sm tracking-normal align-top ml-2 font-mono italic">v.004</span></h3>
+                            <p class="font-mono text-cyan-800 text-[10px] tracking-[0.4em] uppercase">Accessing secure asset repository...</p>
+                        </div>
+                        <div class="hidden md:block">
+                            <a href="#" class="font-mono text-[9px] text-cyan-700 tracking-widest border border-cyan-900/50 px-6 py-3 uppercase hover:text-cyber-blue hover:border-cyber-blue transition-all">[ RETURN_TO_ROOT ]</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <!-- Card 1: IqwanEngine Apps -->
+                        <div class="bg-black/80 border-cyan-400 border p-8 flex flex-col group hover:shadow-neon-blue transition-all duration-500">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-mono text-cyan-400 text-[10px]">[00] IQWAN-ENGINE APPS</span>
+                                <span class="font-mono text-green-400 text-[10px] uppercase font-bold animate-pulse">STATUS: ACTIVE</span>
+                            </div>
+                            <h4 class="font-display font-black italic text-white text-3xl uppercase tracking-tighter mb-4 group-hover:text-cyber-blue transition-colors">IQWAN ENGINE APPS</h4>
+                            <p class="text-gray-500 text-[11px] leading-relaxed mb-10 font-light flex-grow">
+                                Central control dashboard designed to manage and monitor all proprietary automation systems and background processes.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[PYTHON]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[REACT]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[AUTOMATION]</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-auto">
+                                <button class="cyber-btn cyber-btn-primary cyber-btn-sm">View Demo</button>
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm">Source Code</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: IqwanEngine FX -->
+                        <div class="bg-black/80 border-cyan-400 border p-8 flex flex-col group hover:shadow-neon-blue transition-all duration-500">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-mono text-cyan-400 text-[10px]">[01] IQWAN-ENGINE FX</span>
+                                <span class="font-mono text-green-400 text-[10px] uppercase font-bold animate-pulse">STATUS: ACTIVE</span>
+                            </div>
+                            <h4 class="font-display font-black italic text-white text-3xl uppercase tracking-tighter mb-4 group-hover:text-cyber-blue transition-colors">IQWAN ENGINE FX</h4>
+                            <p class="text-gray-500 text-[11px] leading-relaxed mb-10 font-light flex-grow">
+                                XAUUSD specialized algorithmic trading system. High-precision execution with built-in risk mitigation and real-time monitoring.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[TRADING]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[MT4/5 API]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[PYTHON]</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-auto">
+                                <button class="cyber-btn cyber-btn-primary cyber-btn-sm">View Demo</button>
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm">Source Code</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Project Rainmeter -->
+                        <div class="bg-black/50 border-cyan-900/50 border p-8 flex flex-col group hover:border-cyan-400 transition-all duration-500">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-mono text-cyan-900 text-[10px]">[02] PROJECT-RAINMETER</span>
+                                <span class="font-mono text-gray-700 text-[10px] uppercase font-bold">STATUS: DEPLOYED</span>
+                            </div>
+                            <h4 class="font-display font-black italic text-white text-3xl uppercase tracking-tighter mb-4 group-hover:text-white transition-colors">RAINMETER SUITE</h4>
+                            <p class="text-gray-700 text-[11px] leading-relaxed mb-10 font-light flex-grow">
+                                Bespoke desktop skin for real-time system diagnostics and minimalist aesthetic optimization.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="font-mono text-[9px] border border-cyan-900/30 px-2 py-1 text-gray-800 uppercase">[DESKTOP DESIGN]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/30 px-2 py-1 text-gray-800 uppercase">[LUA]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/30 px-2 py-1 text-gray-800 uppercase">[SKINNING]</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-auto">
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm !text-white/40 border-white/10 hover:border-white hover:text-white hover:bg-white/5">View Demo</button>
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm !text-white/40 border-white/10 hover:border-white hover:text-white hover:bg-white/5">Source Code</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Project Google Sites -->
+                        <div class="bg-black/50 border-cyan-900/50 border p-8 flex flex-col group hover:border-cyan-400 transition-all duration-500">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-mono text-cyan-900 text-[10px]">[03] PROJECT-GOOGLE-SITES</span>
+                                <span class="font-mono text-gray-700 text-[10px] uppercase font-bold">STATUS: DEPLOYED</span>
+                            </div>
+                            <h4 class="font-display font-black italic text-white text-3xl uppercase tracking-tighter mb-4 group-hover:text-white transition-colors">CHROME HUB</h4>
+                            <p class="text-gray-700 text-[11px] leading-relaxed mb-10 font-light flex-grow">
+                                Custom Chrome home page centralized hub. Aggregates all work-related links and operational metrics into one unified interface.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="font-mono text-[9px] border border-cyan-900/30 px-2 py-1 text-gray-800 uppercase">[SITES]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/30 px-2 py-1 text-gray-800 uppercase">[JS]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/30 px-2 py-1 text-gray-800 uppercase">[WORKFLOW]</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-auto">
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm !text-white/40 border-white/10 hover:border-white hover:text-white hover:bg-white/5">View Demo</button>
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm !text-white/40 border-white/10 hover:border-white hover:text-white hover:bg-white/5">Source Code</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Project Reminder -->
+                        <div class="bg-black/80 border-cyan-400 border p-8 flex flex-col group hover:shadow-neon-blue transition-all duration-500">
+                            <div class="flex justify-between items-start mb-6">
+                                <span class="font-mono text-cyan-400 text-[10px]">[04] PROJECT-REMINDER</span>
+                                <span class="font-mono text-green-400 text-[10px] uppercase font-bold animate-pulse">STATUS: ACTIVE</span>
+                            </div>
+                            <h4 class="font-display font-black italic text-white text-3xl uppercase tracking-tighter mb-4 group-hover:text-cyber-blue transition-colors">WFH REMINDER</h4>
+                            <p class="text-gray-500 text-[11px] leading-relaxed mb-10 font-light flex-grow">
+                                Background utility focused on human-centric performance. Provides critical alerts to prevent fatigue during deep-work cycles.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-10">
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[PYTHON]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[TKINTER]</span>
+                                <span class="font-mono text-[9px] border border-cyan-900/50 px-2 py-1 text-cyan-700 uppercase">[HUMAN-OPS]</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-auto">
+                                <button class="cyber-btn cyber-btn-primary cyber-btn-sm">View Demo</button>
+                                <button class="cyber-btn cyber-btn-outline cyber-btn-sm">Source Code</button>
+                            </div>
+                        </div>
+                        <!-- Card 6: BUTTON ADD FILE -->
+                        <div class="relative group p-6 bg-[#0c0c0c]/80 border-2 border-dashed border-cyan-900/50 flex flex-col items-center justify-center min-h-[250px] overflow-hidden transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] cursor-pointer">
+
+                            <!-- Background Chip GIF (Filtered & Blurred) -->
+                            <div class="absolute inset-0 z-0 pointer-events-none">
+                                <!-- mix-blend untuk kelabukan warna, blur dan brightness untuk malapkan -->
+                                <img src="assets/IqwanEngine Chip.GIF" alt="Chip Background" class="w-full h-full object-cover opacity-20 blur-[1px] mix-blend-luminosity brightness-20">
+                                <!-- Lapisan gelap tambahan supaya teks atas tetap jelas -->
+                                <div class="absolute inset-0 bg-[#050505]/60 group-hover:bg-[#050505]/40 transition-colors duration-300"></div>
+                            </div>
+
+                            <!-- Content On Top -->
+                            <div class="relative z-10 flex flex-col items-center text-center">
+                                <!-- Bulatan Butang Tambah -->
+                                <div class="w-14 h-14 mb-4 border border-dashed border-cyan-700 rounded-full flex items-center justify-center text-cyan-700 group-hover:text-cyan-400 group-hover:border-cyan-400 group-hover:scale-110 transition-all duration-300 shadow-[0_0_10px_rgba(34,211,238,0)] group-hover:shadow-[0_0_15px_rgba(34,211,238,0.4)]">
+                                    <span class="text-3xl font-light leading-none mt-[-2px]">+</span>
+                                </div>
+                                <h4 class="font-mono text-[11px] tracking-[0.3em] text-cyan-700 group-hover:text-cyan-400 transition-colors uppercase font-bold">
+                                    ADD_NEW_FILE
+                                </h4>
+                                <p class="font-mono text-[8px] text-cyan-900 mt-2 opacity-50 group-hover:opacity-100 group-hover:text-cyan-600 transition-all">
+                                    // Awaiting Next Deployment...
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="py-20 border-t border-cyan-950 mt-20">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8 opacity-40">
+                    <p class="font-mono text-[9px] tracking-widest text-gray-500 uppercase">
+                        © 2026 IQWANENGINE_SYSTEMS // ALL RIGHTS RESERVED
+                    </p>
+                    <p class="font-mono text-[11px] font-bold text-cyber-blue shadow-neon-blue">V1.2.0_STABLE</p>
+                    <div class="flex gap-12 font-mono text-[9px] tracking-[0.4em] uppercase text-gray-500">
+                        <span>ENCRYPTION: AES-256</span>
+                        <span>CONNECTION: STABLE</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Intersection Observer Logic -->
+        <script>
+            // Modal functions
+            function openModal() {
+                const modal = document.getElementById('resume-modal');
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Disable scroll
+            }
+
+            function closeModal() {
+                const modal = document.getElementById('resume-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = ''; // Enable scroll
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const skillsContainer = document.getElementById('skills-container');
+                const progressBars = document.querySelectorAll('.skill-progress');
+
+                const skillsObserverOptions = {
+                    threshold: 0.2, // Trigger earlier for better feel
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const skillsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Staggered loading effect for a "system-boot" feel
+                            progressBars.forEach((bar, index) => {
+                                setTimeout(() => {
+                                    const percent = bar.getAttribute('data-percent');
+                                    bar.style.width = `${percent}%`;
+                                }, index * 120); // 120ms delay between bars
+                            });
+                            // Unobserve after animation is triggered
+                            skillsObserver.unobserve(entry.target);
+                        }
+                    });
+                }, skillsObserverOptions);
+
+                if (skillsContainer) {
+                    skillsObserver.observe(skillsContainer);
+                }
+            });
+        </script>
+    </body>
+    </html>
+
+
+    <!-- Script for Matrix Text Effect -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+            const targetElement = document.getElementById("matrix-text");
+            const originalText = targetElement.dataset.value;
+            let iteration = 0;
+            let interval = null;
+
+            // Kita delay sikit (800ms) bagi peluang nama HAIRUL IQWAN masuk dulu
+            setTimeout(() => {
+                clearInterval(interval);
+
+                interval = setInterval(() => {
+                    targetElement.innerText = originalText
+                        .split("")
+                        .map((letter, index) => {
+                            // Jangan rawakkan ruang kosong atau simbol '|' supaya struktur tak pecah
+                            if (letter === " " || letter === "|") return letter;
+
+                            // Jika huruf dah melepasi garisan masa 'iteration', tunjuk huruf sebenar
+                            if (index < iteration) {
+                                return originalText[index];
+                            }
+
+                            // Jika belum sampai masa, paparkan huruf/simbol Matrix secara rawak
+                            return letters[Math.floor(Math.random() * letters.length)];
+                        })
+                        .join("");
+
+                    // Berhenti bila semua huruf dah selesai di-decrypt
+                    if (iteration >= originalText.length) {
+                        clearInterval(interval);
+                    }
+
+                    // Kelajuan decrypt (Makin besar nilai, makin laju dia decrypt)
+                    iteration += 1 / 3;
+                }, 30); // 30ms per frame (Kelajuan scramble)
+            }, 800);
+        });
+    </script>
